@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- status：用来指定log4j本身的打印日志级别,monitorInterval:指定log4j自动重新配置的监测间隔时间 -->
+<Configuration status="INFO" monitorInterval="120">
+    <properties>
+        <!-- 注释掉保存日志的设置，只打印到控制台，如果要保存日志则打开所有注释 -->
+        <property name="LOG_HOME">gym-api</property>
+        <property name="pattern">%d{yyyy-MM-dd.HH:mm:ss.SSS} %style{[%t]}{bright,magenta} %highlight{%-5level} %style{[%-c{0}:%M:%L]}{bright,CYAN} - %msg%n</property>
+    </properties>
+    <appenders>
+        <!--Appender 1. 输出到Console控制台，指定输出格式和过滤器等级为INFO -->
+        <Console name="Console" target="SYSTEM_OUT" >
+            <PatternLayout pattern="${pattern}"/>
+        </Console>
+        <!--Appender 2. 输出到滚动保存的文件-->
+        <File name="allLog" fileName="${LOG_HOME}/all.log" append="true">
+            <ThresholdFilter level="ALL" onMatch="ACCEPT" onMismatch="DENY"/>
+            <PatternLayout charset="UTF-8" pattern="${pattern}"/>
+        </File>
+        <RollingFile name="debugLog" fileName="${LOG_HOME}/debug.log" filePattern="${LOG_HOME}/%d{yyyy-MM-dd}_debug.log">
+            <ThresholdFilter level="DEBUG" onMatch="ACCEPT" onMismatch="DENY"/>
+            <PatternLayout charset="UTF-8" pattern="${pattern}"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy modulate="true" interval="1" />
+            </Policies>
+        </RollingFile>
+        <RollingFile name="infoLog" fileName="${LOG_HOME}/info.log" filePattern="${LOG_HOME}/%d{yyyy-MM-dd}_info.log">
+            <ThresholdFilter level="INFO" onMatch="ACCEPT" onMismatch="DENY"/>
+            <PatternLayout charset="UTF-8" pattern="${pattern}"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy modulate="true" interval="1" />
+            </Policies>
+        </RollingFile>
+        <RollingFile name="errorLog" fileName="${LOG_HOME}/error.log" filePattern="${LOG_HOME}/%d{yyyy-MM-dd}_error.log">
+            <ThresholdFilter level="ERROR" onMatch="ACCEPT" onMismatch="DENY"/>
+            <PatternLayout charset="UTF-8" pattern="${pattern}"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy modulate="true" interval="1" />
+            </Policies>
+        </RollingFile>
+    </appenders>
+    <!--root 默认加载-->
+    <loggers>
+        <root level="INFO">
+            <appender-ref ref="Console"/>
+            <appender-ref ref="allLog"/>
+            <appender-ref ref="debugLog"/>
+            <appender-ref ref="infoLog"/>
+            <appender-ref ref="errorLog"/>
+        </root>
+    </loggers>
+</Configuration>
