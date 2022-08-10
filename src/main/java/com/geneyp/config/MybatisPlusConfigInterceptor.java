@@ -1,4 +1,4 @@
-package com.gym.config;
+package com.geneyp.config;
 
 import com.baomidou.mybatisplus.annotation.DbType;
 import com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor;
@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-@MapperScan("com.gym.dao")
+@MapperScan("com.gene.dao")
 public class MybatisPlusConfigInterceptor {
 
     @Bean

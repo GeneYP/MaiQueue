@@ -1,4 +1,4 @@
-package com.xiaopi.config;
+package com.geneyp.config;
 
 import java.util.List;
 

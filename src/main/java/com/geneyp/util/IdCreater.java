@@ -1,4 +1,4 @@
-package com.gym.util;
+package com.geneyp.util;
 
 public class IdCreater {
 
@@ -33,9 +33,13 @@ public class IdCreater {
     }
 
     public static void main(String[] args) {
-        IdCreater.create15();
-        IdCreater.create15();
-        IdCreater.create15();
-        IdCreater.create15();
+        for (int i = 0; i < 1; i++) {
+            System.out.println(IdCreater.create15());
+        }
+        System.out.println(IdCreater.create15());
+//        IdCreater.create15();
+//        IdCreater.create15();
+//        IdCreater.create15();
+//        IdCreater.create15();
     }
 }

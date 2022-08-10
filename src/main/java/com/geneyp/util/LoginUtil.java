@@ -1,7 +1,7 @@
-package com.gym.util;
+package com.geneyp.util;
 
 import com.alibaba.fastjson.JSON;
-import com.gym.bean.AjaxResult;
+import com.geneyp.common.R;
 import lombok.extern.slf4j.Slf4j;
 
 import javax.servlet.http.HttpServletResponse;
@@ -12,7 +12,7 @@ import java.io.PrintWriter;
 public class LoginUtil {
 
     public static void loginRequired(HttpServletResponse response) {
-        AjaxResult<Void> result = AjaxResult.error("未登录");
+        R<Void> result = R.error("未登录");
         response.setContentType("application/json;charset=UTF-8");
         response.setCharacterEncoding("UTF-8");
         try (PrintWriter writer = response.getWriter()) {

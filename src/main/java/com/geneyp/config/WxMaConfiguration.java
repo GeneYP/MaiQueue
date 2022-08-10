@@ -1,4 +1,4 @@
-package com.xiaopi.config;
+package com.geneyp.config;
 
 import cn.binarywang.wx.miniapp.api.WxMaService;
 import cn.binarywang.wx.miniapp.api.impl.WxMaServiceImpl;

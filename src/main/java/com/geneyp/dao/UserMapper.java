@@ -1,4 +1,4 @@
-package com.geneyp.mapper;
+package com.geneyp.dao;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.geneyp.entity.User;

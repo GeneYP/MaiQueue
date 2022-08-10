@@ -1,4 +1,4 @@
-package com.gym.exception;
+package com.geneyp.exception;
 
 
 public class ApiException extends RuntimeException {

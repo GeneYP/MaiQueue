@@ -1,4 +1,4 @@
-package com.xiaopi.entity;
+package com.geneyp.entity;
 
 import lombok.Data;
 
@@ -18,6 +18,8 @@ public class User implements Serializable {
 
     private Long id;
 
+    private String uuid;
+
     private String name;
 
     private String password;
@@ -30,7 +32,14 @@ public class User implements Serializable {
 
     private Integer gender;
 
+    private String cardImg;
+
     private LocalDateTime createTime;
 
     private LocalDateTime updateTime;
+
+    public void setNull() {
+        id = null;
+        openid = null;
+    }
 }

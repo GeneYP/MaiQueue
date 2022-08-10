@@ -1,7 +1,7 @@
 package com.geneyp.dao;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.geneyp.entity.Music;
+import com.geneyp.entity.Que;
 
 /**
  * @author GeneYP
@@ -9,6 +9,6 @@ import com.geneyp.entity.Music;
  * @date 2022/7/23 01:58
  * @description com.geneyp.mapper
  */
-public interface MusicMapper extends BaseMapper<Music> {
+public interface QueMapper extends BaseMapper<Que> {
 
 }

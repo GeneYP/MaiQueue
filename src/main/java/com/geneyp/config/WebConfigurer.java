@@ -1,4 +1,4 @@
-package com.gym.config;
+package com.geneyp.config;
 
 import com.google.common.collect.Lists;
 import org.springframework.context.annotation.Bean;
@@ -20,19 +20,14 @@ public class WebConfigurer implements WebMvcConfigurer {
         registry.addInterceptor(new GlobalInterceptor()).addPathPatterns("/**");
         List<String> excludeLoginList = Lists.newArrayList();
         excludeLoginList.add("/");
-        excludeLoginList.add("/favicon.ico");
+//        excludeLoginList.add("/favicon.ico");
         excludeLoginList.add("/swagger-resources");
         excludeLoginList.add("/v3/api-docs");
-        excludeLoginList.add("/manage/auth/login");
-        excludeLoginList.add("/manage/auth/register");
-//        excludeLoginList.add("/fc/**");
-        excludeLoginList.add("/merchant/gym/search/**");
-        excludeLoginList.add("/fc/auth/register");
-        excludeLoginList.add("/fc/auth/login");
-        excludeLoginList.add("/fc/food/**");
-        excludeLoginList.add("/fc/plan/**");
-        excludeLoginList.add("/fc/active/**");
-        excludeLoginList.add("/common/**");
+        excludeLoginList.add("/music/**");
+        excludeLoginList.add("/shop/**");
+        excludeLoginList.add("/que/get/**");
+        excludeLoginList.add("/logs/get/**");
+        excludeLoginList.add("/wx/user/**");
         registry.addInterceptor(jwtInterceptor()).addPathPatterns("/**").excludePathPatterns(excludeLoginList);
     }
 

@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.geneyp.dao.MusicMapper">
-    <resultMap id="BaseResultMap" type="com.geneyp.entity.Music">
+<mapper namespace="com.geneyp.dao.UserMapper">
+    <resultMap id="BaseResultMap" type="com.geneyp.entity.User">
         <!--
           WARNING - @mbg.generated
         -->
         <id column="id" jdbcType="BIGINT" property="id"/>
-        <result column="title" jdbcType="VARCHAR" property="title"/>
-        <result column="type" jdbcType="VARCHAR" property="type"/>
-        <result column="ds" jdbcType="VARCHAR" property="ds"/>
-        <result column="level" jdbcType="VARCHAR" property="level"/>
-        <result column="charts" jdbcType="VARCHAR" property="charts"/>
-        <result column="basic_info" jdbcType="VARCHAR" property="basicInfo"/>
+        <result column="uuid" jdbcType="VARCHAR" property="uuid"/>
+        <result column="name" jdbcType="VARCHAR" property="name"/>
+        <result column="password" jdbcType="VARCHAR" property="password"/>
+        <result column="avatar" jdbcType="VARCHAR" property="avatar"/>
         <result column="nickname" jdbcType="VARCHAR" property="nickname"/>
-        <result column="available" jdbcType="INTEGER" property="available"/>
+        <result column="openid" jdbcType="VARCHAR" property="openid"/>
+        <result column="gender" jdbcType="TINYINT" property="gender"/>
+        <result column="card_img" jdbcType="VARCHAR" property="cardImg"/>
     </resultMap>
 
 </mapper>

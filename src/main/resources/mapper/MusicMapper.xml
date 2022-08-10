@@ -1,14 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.geneyp.dao.MusicMapper">
+    <resultMap id="BaseResultMap" type="com.geneyp.entity.Music">
+        <!--
+          WARNING - @mbg.generated
+        -->
+        <id column="id" jdbcType="BIGINT" property="id"/>
+        <result column="title" jdbcType="VARCHAR" property="title"/>
+        <result column="type" jdbcType="VARCHAR" property="type"/>
+        <result column="ds" jdbcType="VARCHAR" property="ds"/>
+        <result column="level" jdbcType="VARCHAR" property="level"/>
+        <result column="charts" jdbcType="VARCHAR" property="charts"/>
+        <result column="basic_info" jdbcType="VARCHAR" property="basicInfo"/>
+        <result column="nickname" jdbcType="VARCHAR" property="nickname"/>
+        <result column="bpm" jdbcType="INTEGER" property="bpm"/>
+        <result column="genre" jdbcType="VARCHAR" property="genre"/>
+        <result column="maifrom" jdbcType="VARCHAR" property="maifrom"/>
+        <result column="basic_ds" jdbcType="DECIMAL" property="basicDs"/>
+        <result column="advanced_ds" jdbcType="DECIMAL" property="advancedDs"/>
+        <result column="expert_ds" jdbcType="DECIMAL" property="expertDs"/>
+        <result column="master_ds" jdbcType="DECIMAL" property="masterDs"/>
+        <result column="remaster_ds" jdbcType="DECIMAL" property="remasterDs"/>
+        <result column="available" jdbcType="INTEGER" property="available"/>
+    </resultMap>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="$CONTROLLER_NAME$"
-            prefHeight="400.0" prefWidth="600.0" >
-
-</AnchorPane>
+</mapper>

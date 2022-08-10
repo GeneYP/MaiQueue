@@ -1,7 +1,7 @@
 package com.geneyp.dao;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.geneyp.entity.Que;
+import com.geneyp.entity.MaiLog;
 
 /**
  * @author GeneYP
@@ -9,6 +9,6 @@ import com.geneyp.entity.Que;
  * @date 2022/7/23 01:58
  * @description com.geneyp.mapper
  */
-public interface QueMapper extends BaseMapper<Que> {
+public interface MaiLogMapper extends BaseMapper<MaiLog> {
 
 }

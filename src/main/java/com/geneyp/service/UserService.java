@@ -1,7 +1,10 @@
-package com.xiaopi.service;
+package com.geneyp.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.xiaopi.entity.User;
+import com.geneyp.entity.User;
+
+import java.util.HashMap;
+import java.util.concurrent.Future;
 
 /**
  * @author GeneYP
@@ -11,6 +14,7 @@ import com.xiaopi.entity.User;
  */
 public interface UserService extends IService<User> {
 
+    Future<HashMap<String, Object>> getAllScore(String name);
 
-
+    Future<HashMap<String, Object>> getB40Score(String name);
 }

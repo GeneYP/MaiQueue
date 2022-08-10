@@ -1,19 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.geneyp.dao.MusicMapper">
-    <resultMap id="BaseResultMap" type="com.geneyp.entity.Music">
+<mapper namespace="com.geneyp.dao.ShopMapper">
+    <resultMap id="BaseResultMap" type="com.geneyp.entity.Shop">
         <!--
           WARNING - @mbg.generated
         -->
         <id column="id" jdbcType="BIGINT" property="id"/>
-        <result column="title" jdbcType="VARCHAR" property="title"/>
-        <result column="type" jdbcType="VARCHAR" property="type"/>
-        <result column="ds" jdbcType="VARCHAR" property="ds"/>
-        <result column="level" jdbcType="VARCHAR" property="level"/>
-        <result column="charts" jdbcType="VARCHAR" property="charts"/>
-        <result column="basic_info" jdbcType="VARCHAR" property="basicInfo"/>
-        <result column="nickname" jdbcType="VARCHAR" property="nickname"/>
-        <result column="available" jdbcType="INTEGER" property="available"/>
+        <result column="name" jdbcType="VARCHAR" property="name"/>
+        <result column="province" jdbcType="VARCHAR" property="province"/>
+        <result column="city" jdbcType="VARCHAR" property="city"/>
+        <result column="address" jdbcType="VARCHAR" property="address"/>
+        <result column="num" jdbcType="INTEGER" property="num"/>
+        <result column="lng" jdbcType="DECIMAL" property="lng"/>
+        <result column="lat" jdbcType="DECIMAL" property="lat"/>
+        <result column="is_auto" jdbcType="INTEGER" property="isAuto"/>
     </resultMap>
 
+    <select id="getAround" resultType="com.geneyp.entity.Shop" parameterType="hashmap">
+        SELECT `id`, `name`, `num`, `address`,
+               (POWER(MOD(ABS(lng - #{myLng}),360),2) + POWER(ABS(lat - #{myLat}),2)) * 1000 AS distance
+        FROM `shop`
+        ORDER BY distance asc LIMIT 20
+    </select>
 </mapper>

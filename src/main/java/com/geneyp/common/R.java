@@ -1,5 +1,6 @@
-package com.xiaopi.common;
+package com.geneyp.common;
 
+import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
 import java.util.HashMap;
@@ -12,33 +13,115 @@ import java.util.Map;
  * @description 统一返回类
  */
 @Data
-public class R<T> {
+public class R<T>
+{
+    @ApiModelProperty(value = "响应状态")
+    private int code;
 
-    private Integer code; //编码：1成功，0和其它数字为失败
+    private T data;
 
-    private String msg; //错误信息
+    @ApiModelProperty(value = "描述")
+    private String desc;
 
-    private T data; //数据
+    @ApiModelProperty(value = "业务是否成功")
+    private Boolean success;
 
-    private Map map = new HashMap(); //动态数据
 
-    public static <T> R<T> success(T object) {
-        R<T> r = new R<T>();
-        r.data = object;
-        r.code = 1;
-        return r;
+    /**
+     * 初始化一个新创建的 R 对象
+     *
+     * @param code 状态码
+     * @param data 数据对象
+     */
+    public R(int code, Boolean success, T data, String desc)
+    {
+        this.code=code;
+        this.success=success;
+        this.data=data;
+        this.desc=desc;
     }
 
-    public static <T> R<T> error(String msg) {
-        R r = new R();
-        r.msg = msg;
-        r.code = 0;
-        return r;
+    /**
+     * 返回成功消息
+     *
+     * @param data 数据对象
+     * @return 成功消息
+     */
+    public static R success(Object data)
+    {
+        return new R(200,true,data,null);
+    }
+    /**
+     * 返回成功消息
+     *
+     * @param data 数据对象
+     * @return 成功消息
+     */
+    public static R success(Object data,String desc)
+    {
+        return new R(200,true,data,desc);
     }
 
-    public R<T> add(String key, Object value) {
-        this.map.put(key, value);
-        return this;
+    /**
+     * 返回成功消息
+     *
+     * @return 成功消息
+     */
+    public static R unsuccess(String desc)
+    {
+        return new R(500,false,null,desc);
+    }
+
+
+    /**
+     * 返回成功消息
+     *
+     * @return 成功消息
+     */
+    public static R unsuccess(String data, String desc)
+    {
+        return new R(200,false,data,desc);
+    }
+
+
+    /**
+     * 无权限
+     *
+     * @return 成功消息
+     */
+    public static R notAuth()
+    {
+        return new R(401,false,null, "没有权限");
+    }
+
+    /**
+     * 返回错误消息
+     *
+     * @return 警告消息
+     */
+    public static R error(String msg)
+    {
+        return new R(500,false,null, msg);
+    }
+
+    /**
+     * 返回错误消息
+     *
+     * @return 警告消息
+     */
+    public static R notfound()
+    {
+        return new R(404,false,null, "接口未找到");
+    }
+
+    /**
+     * 返回错误消息
+     *
+     * @return 警告消息
+     */
+    public static R notReadable()
+    {
+        return new R(400,false,null, "参数解析失败");
     }
 
 }

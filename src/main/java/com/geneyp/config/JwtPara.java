@@ -1,4 +1,4 @@
-package com.gym.config;
+package com.geneyp.config;
 
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;

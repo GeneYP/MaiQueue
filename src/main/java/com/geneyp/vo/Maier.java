@@ -11,7 +11,7 @@ import lombok.Data;
  */
 @Data
 @ApiModel(description = "mai队列")
-public class MaiQueue {
+public class Maier {
     // 队列id
     private Integer queId;
     // 机厅id
@@ -19,7 +19,7 @@ public class MaiQueue {
     // 机台id
     private Integer gameId;
     // 玩家id
-    private String userId;
+    private String uuid;
     // 玩家位置
     private Integer position;
     // 玩家昵称
@@ -27,5 +27,5 @@ public class MaiQueue {
     // 卡背
     private String cardImg;
     // 队列版本
-    private Integer version;
+//    private Integer version;
 }
