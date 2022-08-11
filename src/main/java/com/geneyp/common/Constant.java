@@ -16,6 +16,7 @@ public class Constant {
 //    public static final String UPLOAD = "/Users/geneyp/work/tmp/upload/";
 //    public static final String BASE_URL = "http://127.0.0.1:8080";
 
+    public static final double EARTH_RADIUS = 6371.393;
     public static final String DEV_TOKEN_HEADER = "developer-token";
     public static final String DEV_TOKEN_VALUE = "dXC6e3TFnGfsdg3ed8FlEhr7j9pUv1sa";
     public static final String ALL_SCORE_URL = "https://www.diving-fish.com/api/maimaidxprober/dev/player/records?username=";

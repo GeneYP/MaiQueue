@@ -19,4 +19,6 @@ public interface ShopService extends IService<Shop> {
     List<Shop> getByCity(String city);
 
     List<Shop> getByLngAndLat(BigDecimal shopLng, BigDecimal shopLat);
+
+    boolean checkIsArrive(Integer shopId, BigDecimal lng, BigDecimal lat);
 }
