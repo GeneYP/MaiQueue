@@ -55,7 +55,7 @@ public class ShopServiceImpl extends ServiceImpl<ShopMapper, Shop> implements Sh
     @Override
     public boolean checkIsArrive(Integer shopId, BigDecimal lng, BigDecimal lat) {
         QueryWrapper<Shop> wrapper = new QueryWrapper<>();
-        wrapper.eq("shop_id", shopId);
+        wrapper.eq("id", shopId);
         Shop shop = getOne(wrapper);
         double radLat1 = rad(shop.getLat().doubleValue());
         double radLat2 = rad(lat.doubleValue());
