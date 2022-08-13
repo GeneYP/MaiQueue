@@ -21,16 +21,9 @@ import org.springframework.web.client.RestTemplate;
 @Slf4j
 @SpringBootApplication
 @EnableAsync
-@EnableScheduling
+//@EnableScheduling
 @MapperScan(value = "com.geneyp.dao")
 public class MaiQueueApplication {
-    @Autowired
-    private RestTemplateBuilder builder;
-    // 使用RestTemplateBuilder来实例化RestTemplate对象，spring默认已经注入了RestTemplateBuilder实例
-    @Bean
-    public RestTemplate restTemplate() {
-        return builder.build();
-    }
     public static void main(String[] args) {
         SpringApplication.run(MaiQueueApplication.class, args);
         log.info("小屁已就位! ");

@@ -72,7 +72,25 @@ public class UserController {
             return R.success(maiUser, "查询成功");
         } catch (Exception e) {
             e.printStackTrace();
-            return R.unsuccess("查询失败：" + e.getMessage());
+//            return R.unsuccess("查询失败：" + e.getMessage());
+            // 根据token获取微信openid
+            String token = wxAuthService.getToken(request);
+            WxUser wxUser = wxAuthService.getWxUser(token);
+            // 根据openid获取用户信息（包括查分器）
+            QueryWrapper<User> wrapper = new QueryWrapper<>();
+            wrapper.eq("openid", wxUser.getOpenid());
+            User user = userService.getOne(wrapper);
+            // 封装返回
+            MaiUser maiUser = new MaiUser();
+            maiUser.setAvatar(user.getAvatar());
+            maiUser.setCardImg(user.getCardImg());
+            maiUser.setNickname(user.getNickname());
+            maiUser.setName(user.getName());
+            maiUser.setLevel(0);
+            maiUser.setRating(0);
+            maiUser.setB25Score("");
+            maiUser.setB15Score("");
+            return R.success(maiUser, "查分器异常");
         }
     }
 
